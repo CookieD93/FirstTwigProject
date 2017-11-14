@@ -1,9 +1,18 @@
 <?php
 $client = new SoapClient("http://footballpool.dataaccess.eu/data/info.wso?WSDL");
 
-$result = $client ->GroupCount();
+$resultGroupCount = $client ->GroupCount();
+$groupcount = $resultGroupCount -> GroupCountResult;
 
-$groupcount = $result -> GroupCountResult;
+$resultGroups = $client -> Groups();
+$groups = $resultGroups ->GroupsResult->tGroupInfo;
+
+$params = array("bWithCompetitors"=>"True");
+
+//$resultCountries = $client->__soapCall('CountryNames',array('bWithCompetitors'=>$params));
+$resultCountries = $client->CountryNames($params);
+$countries = $resultCountries->CountryNamesResult->tCountryInfo;
+
 
 require_once '../vendor/autoload.php';
 Twig_Autoloader::register();
@@ -12,5 +21,5 @@ $twig = new Twig_Environment($loader, array(
     'auto_reload' => true
 ));
 $template = $twig->loadTemplate('football.html.twig');
-$parametersToTwig = array("result" => $groupcount);
+$parametersToTwig = array("groupcount" => $groupcount,"groups"=>$groups, "countries"=>$countries);
 echo $template->render($parametersToTwig);

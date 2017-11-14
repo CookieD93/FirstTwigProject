@@ -10,8 +10,31 @@
 {% include 'nav.php' %}
 <h1>This is a heading</h1></br>
 
-<div>outputting data from football service : GroupCount</div>
+<div>Outputting data from football service : GroupCount</div></br>
+<div>{{ groupcount }}</div></br></br>
 
-<div>{{ result }}</div>
+<div>Outputting data from football service : Groups</div></br>
+
+<ul>
+    {% for group in groups %}
+        <li>
+            <p>{{ group.sCode }}</br>
+            {{ group.sDescription }}</p></li>
+
+    {% endfor %}
+</ul>
+
+<div>Outputting data from football service : CountryNames</div></br>
+
+<ul>
+    {% for country in countries %}
+        <li>
+            <p>name : {{ country.sName }}</br>
+               id : {{ country.iId }}</br>
+               iso code : {{ country.sIsoCode }}</br>
+                flag : <img src="http://footballpool.dataaccess.eu/images/flags/{{ country.sIsoCode }}.gif"></br>
+               persons : {{ country.iPersons }}</p></li>
+    {% endfor %}
+</ul>
 </body>
 </html>
