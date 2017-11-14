@@ -25,7 +25,15 @@
 </ul>
 
 <div>Outputting data from football service : CountryNames</div></br>
+<form method="get">
+    <select name="bWithcompetitors">
+        <option value="" disabled selected>- Vælg -</option>
+        <option value="1">With competitors</option>
+        <option value="0">without competitors</option>
+    </select>
+    <input type="submit" name="Udregn">
 
+</form>
 <ul>
     {% for country in countries %}
         <li>
