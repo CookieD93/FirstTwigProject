@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styling/Style.css">
+
+    <title>Customers</title>
+</head>
+<body>
+{% include 'nav.php' %}
+<h1>This is a heading</h1></br>
+<ul>
+    {% for customer in Customers %}
+        <li>
+            <p> Id : {{ customer.Id }}</br>
+                First name : {{ customer.FirstName }}</br>
+                Last name : {{ customer.LastName }}</br>
+                Year : {{ customer.Year }}</p></li>
+    {% endfor %}
+</ul>
+<form method="post">
+    <input type="text" name="GetCustomersFelt" placeholder="Skriv id for at søge efter id">
+    <input type="submit" name="GetCustomersKnap" value="Get Customer(s)">
+</form>
+
+</body>
+</html>

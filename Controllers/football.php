@@ -13,7 +13,6 @@ if (isset($_GET['bWithcompetitors'])){
     $varFromDD = filter_var($_GET['bWithcompetitors'],FILTER_VALIDATE_BOOLEAN);
     $params = array("bWithCompetitors" => $varFromDD);
     //$params = array("bWithCompetitors" => $varFromDD);
-print_r($params);
 //$resultCountries = $client->__soapCall('CountryNames',array('bWithCompetitors'=>$params));
     $resultCountries = $client->CountryNames($params);
     $countries = $resultCountries->CountryNamesResult->tCountryInfo;
