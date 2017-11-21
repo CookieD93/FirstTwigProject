@@ -9,6 +9,7 @@
 <body>
 {% include 'nav.php' %}
 <h1>This is a heading</h1></br>
+<h2>Get Customer Data</h2>
 <ul>
     {% for customer in Customers %}
         <li>
@@ -21,6 +22,20 @@
 <form method="post">
     <input type="text" name="GetCustomersFelt" placeholder="Skriv id for at søge efter id">
     <input type="submit" name="GetCustomersKnap" value="Get Customer(s)">
+</form>
+
+
+<h2>Create / Update Customer</h2>
+
+<form method="post">
+    <input type="number" name="UpdateCustomerId" placeholder="Id" title="Skriv Id for at kunne opdatere Customer">
+    <input type="submit" name="UpdateCustomerSubmit" value="Update Customer">
+    </br>
+    </br>
+    <input type="text" name="CreateCustomerFName" placeholder="Fornavn" required>
+    <input type="text" name="CreateCustomerLName" placeholder="Efternavn" required>
+    <input type="number" name="CreateCustomerYear" placeholder="Årstal" required>
+    <input type="submit" name="CreatueCustomerSubmit" value="Create Customer">
 </form>
 
 </body>
